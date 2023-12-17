@@ -65,8 +65,8 @@ module.exports.postregister = async (req, res, next) => {
             "Messages": [
                {
                   "From": {
-                     "Email": "support@stockexchangecryptomanagement.com",
-                     "Name": "stockexchangecryptomanagement"
+                     "Email": "support@cryptonustetrade.com",
+                     "Name": "cryptonustetrade"
 
                   },
                   "To": [
@@ -77,7 +77,7 @@ module.exports.postregister = async (req, res, next) => {
                   ],
 
                   "Subject": "Welcome Message",
-                  "TextPart": `Dear ${email}, welcome to Stockexchangecryptomanagement`,
+                  "TextPart": `Dear ${email}, welcome to cryptonustetrade`,
                   "HTMLPart": welcomeTemplate(fullname)
                }
             ]
@@ -287,8 +287,8 @@ module.exports.postdeposit = async (req, res, next) => {
                "Messages": [
                   {
                      "From": {
-                        "Email": "support@stockexchangecryptomanagement.com",
-                        "Name": "stockexchangecryptomanagement"
+                        "Email": "support@cryptonustetrade.com",
+                        "Name": "cryptonustetrade"
 
                      },
                      "To": [
@@ -507,8 +507,8 @@ module.exports.postconfirmwithdraw = async (req, res, next) => {
                   "Messages": [
                      {
                         "From": {
-                           "Email": "support@stockexchangecryptomanagement.com",
-                           "Name": "stockexchangecryptomanagement"
+                           "Email": "support@cryptonustetrade.com",
+                           "Name": "cryptonustetrade"
    
                         },
                         "To": [
@@ -712,9 +712,6 @@ module.exports.getpayment = async (req, res, next) => {
          else {
             return res.status(200).redirect('/index', { user: user })
          }
-
-
-
       }
 
    } catch (error) {
@@ -722,8 +719,6 @@ module.exports.getpayment = async (req, res, next) => {
       return next(error)
    }
 }
-
-
 
 
 module.exports.getlogout = async (req, res, next) => {
