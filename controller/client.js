@@ -218,11 +218,7 @@ module.exports.getdeposit = async (req, res, next) => {
 
 }
 
-/*
-Your request to make a deposit of ${currency}${amount} has been recieved. Make a payment to your preferred investment method now for your live trading account to be funded. Contact us via our livechat if you need a step guide to go about this
 
-
-*/
 
 module.exports.postdeposit = async (req, res, next) => {
    try {
