@@ -56,6 +56,8 @@ module.exports.postregister = async (req, res, next) => {
          return res.status(200).render('registererror', { msg: 'Password and Confirm password field does not match' })
       }
 
+
+      /*
       //send welcome message
       const mailjet = Mailjet.apiConnect(process.env.MAILJET_APIKEY, process.env.MAILJET_SECRETKEY
       )
@@ -88,6 +90,8 @@ module.exports.postregister = async (req, res, next) => {
          let error = new Error("please use a valid email")
          return next(error)
       }
+      */
+
 
       //creating a new user
       let newUser = new User({
@@ -274,10 +278,11 @@ module.exports.postdeposit = async (req, res, next) => {
             return next(error)
          }
 
+
+         /*
          //send deposit message
          const mailjet = Mailjet.apiConnect(process.env.MAILJET_APIKEY, process.env.MAILJET_SECRETKEY
          )
-
          const request = await mailjet.post("send", { 'version': 'v3.1' })
             .request({
                "Messages": [
@@ -306,6 +311,9 @@ module.exports.postdeposit = async (req, res, next) => {
             let error = new Error("please use a valid email")
             return next(error)
          }
+         */
+
+
 
 
          let modifyUser = await User.findOne({ email: req.session.user.email })
@@ -483,8 +491,7 @@ module.exports.postconfirmwithdraw = async (req, res, next) => {
             account_name: withdrawObj.account_name,
             phone: withdrawObj.phone,
             name: withdrawObj.name,
-            user: user,
-
+            user: user
          })
 
          let savedWithdraw = await newwithdraw.save()
@@ -493,7 +500,7 @@ module.exports.postconfirmwithdraw = async (req, res, next) => {
          }
 
 
-
+  /*
           //send deposit message
           const mailjet = Mailjet.apiConnect(process.env.MAILJET_APIKEY, process.env.MAILJET_SECRETKEY
             )
@@ -527,10 +534,10 @@ module.exports.postconfirmwithdraw = async (req, res, next) => {
                return next(error)
             }
 
+            */
+
             
-
          let modifyUser = await User.findOne({ email: req.session.user.email })
-
          modifyUser.withdraw.push(savedWithdraw)
 
          let newUser = await modifyUser.save()
