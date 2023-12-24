@@ -500,43 +500,41 @@ module.exports.postconfirmwithdraw = async (req, res, next) => {
          }
 
 
-  /*
-          //send deposit message
-          const mailjet = Mailjet.apiConnect(process.env.MAILJET_APIKEY, process.env.MAILJET_SECRETKEY
-            )
-   
-            const request = await mailjet.post("send", { 'version': 'v3.1' })
-               .request({
-                  "Messages": [
-                     {
-                        "From": {
-                           "Email": "support@cryptonustetrade.com",
-                           "Name": "cryptonustetrade"
-   
-                        },
-                        "To": [
-                           {
-                              "Email": `${user.email}`,
-                              "Name": `${user.fullname}`
-                           }
-                        ],
-   
-                        "Subject": "Deposit",
-                        "TextPart": `Your request to make a withdrawal of ${user.currency}${user.amount} has been recieved. We will get back to you shortly`,
-                        "HTMLPart": withdrawTemplate(user.currency,amount)
-                     }
-                  ]
-               })
-   
-   
-            if (!request) {
-               let error = new Error("please use a valid email")
-               return next(error)
-            }
+         /*
+                 //send deposit message
+                 const mailjet = Mailjet.apiConnect(process.env.MAILJET_APIKEY, process.env.MAILJET_SECRETKEY
+                   )
+          
+                   const request = await mailjet.post("send", { 'version': 'v3.1' })
+                      .request({
+                         "Messages": [
+                            {
+                               "From": {
+                                  "Email": "support@cryptonustetrade.com",
+                                  "Name": "cryptonustetrade"
+          
+                               },
+                               "To": [
+                                  {
+                                     "Email": `${user.email}`,
+                                     "Name": `${user.fullname}`
+                                  }
+                               ],
+          
+                               "Subject": "Deposit",
+                               "TextPart": `Your request to make a withdrawal of ${user.currency}${user.amount} has been recieved. We will get back to you shortly`,
+                               "HTMLPart": withdrawTemplate(user.currency,amount)
+                            }
+                         ]
+                      })
+          
+                   if (!request) {
+                      let error = new Error("please use a valid email")
+                      return next(error)
+                   }
+                   */
 
-            */
 
-            
          let modifyUser = await User.findOne({ email: req.session.user.email })
          modifyUser.withdraw.push(savedWithdraw)
 
